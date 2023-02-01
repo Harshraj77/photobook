@@ -8,10 +8,10 @@ function Photobook(props) {
 
   const book = useRef();
 
-  return (
+  return ( 
     <Center mt={5}>
-      <VStack>
-        <Box>
+      <VStack spacing={0}>
+        <Box >
           <HTMLFlipBook
             width={400}
             height={600}
@@ -30,12 +30,14 @@ function Photobook(props) {
         <Box>
           <Button
             colorScheme="blue"
+            mx={2}
             variant="outline"
             onClick={() => book.current.pageFlip().flipPrev()}
           >
             Previous page
           </Button>
           <Button
+          m={2}
             colorScheme="blue"
             variant="outline"
             onClick={() => book.current.pageFlip().flipNext()}

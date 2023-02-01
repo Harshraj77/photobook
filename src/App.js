@@ -9,8 +9,8 @@ function App() {
   return (
     <div className="App">
     <StyleColourMode/>
-    <Box  pt={5}> <Photobook imageData={DECIMAGES}/></Box>
-    <Box  pt={5}> <Photobook imageData={NOVIMAGES}/></Box>
+    <Box height='100vh' > <Photobook imageData={DECIMAGES}/></Box>
+    <Box  > <Photobook imageData={NOVIMAGES}/></Box>
     
     </div>
   );
