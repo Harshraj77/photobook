@@ -11,15 +11,25 @@ function Photobook(props) {
   return ( 
     <Center mt={5}>
       <VStack spacing={0}>
-        <Box sx={{width:"80%"}}>
+        <Box>
           {/* mobile view code */}
           {isMobile && <HTMLFlipBook
-            width={200}
-            height={400}
-            drawShadow={false}
-            showCover={false}
+            // width={200}
+            // height={600}
+            // drawShadow={true}
+            // showCover={false}
+            width={550}
+            height={733}
+            size="stretch"
+            minWidth={315}
+            maxWidth={1000}
+            minHeight={400}
+            maxHeight={1533}
+            maxShadowOpacity={0.5}
+            showCover={true}
+            mobileScrollSupport={true}
             ref={book}
-            usePortrait ={true}
+            // usePortrait ={true}
           >
             {props.imageData.map((id) => (
               <Box>
