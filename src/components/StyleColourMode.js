@@ -7,8 +7,8 @@ function StyleColorMode() {
       <header>
         <IconButton onClick={toggleColorMode}
         icon={colorMode === "light"?<SunIcon/>:<MoonIcon/>}
-        variant="outline"
-        colorScheme='teal'
+        variant="solid"
+        colorScheme='red'
         m={2}
         >
         </IconButton>

@@ -1,8 +1,10 @@
 import React, { useRef } from "react";
 import HTMLFlipBook from "react-pageflip";
-import { Box, Center, Image, VStack } from "@chakra-ui/react";
+import { Box, Center, IconButton, Image, VStack } from "@chakra-ui/react";
 import { Button } from "@chakra-ui/react";
+import { ArrowRightIcon, ArrowLeftIcon } from '@chakra-ui/icons'
 import { useMediaQuery } from "@chakra-ui/react";
+
 function Photobook(props) {
   //passing a refernce and then adding it to html5flipbook
   const [isMobile] = useMediaQuery("(max-width: 768px)");
@@ -40,9 +42,9 @@ function Photobook(props) {
            {/* Laptop device */}  
           {!isMobile && <HTMLFlipBook
             width={400}
-            height={600}
+            height={550}
             drawShadow={false}
-            showCover={false}
+            showCover={true}
             ref={book}
             usePortrait ={false}
           >
@@ -55,22 +57,28 @@ function Photobook(props) {
           
         </Box>
         <Box>
-          <Button
+          {/* <Button
             colorScheme="blue"
             mx={2}
             variant="outline"
             onClick={() => book.current.pageFlip().flipPrev()}
           >
             Previous page
-          </Button>
-          <Button
-          m={2}
-            colorScheme="blue"
-            variant="outline"
+          </Button> */}
+          <IconButton
+            colorScheme="red"
+            icon={<ArrowLeftIcon/>}
+            mx={2}
+            onClick={() => book.current.pageFlip().flipPrev()}/>
+          <IconButton
+            mx={2}
+            colorScheme="red"
+            icon={<ArrowRightIcon/>}
+            focusable={true}
             onClick={() => book.current.pageFlip().flipNext()}
-          >
-            Next page
-          </Button>
+          />
+
+          
         </Box>
       </VStack>
     </Center>
