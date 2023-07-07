@@ -27,7 +27,7 @@ function Photobook(props) {
               </Box>
             ))}
           </HTMLFlipBook>}
-
+           {/* Laptop device */}  
           {!isMobile && <HTMLFlipBook
             width={400}
             height={600}
