@@ -1,19 +1,25 @@
 import React, { useRef } from "react";
 import HTMLFlipBook from "react-pageflip";
 import { Box, Center, IconButton, Image, VStack } from "@chakra-ui/react";
-import { Button } from "@chakra-ui/react";
 import { ArrowRightIcon, ArrowLeftIcon } from '@chakra-ui/icons'
 import { useMediaQuery } from "@chakra-ui/react";
+import { useColorMode } from '@chakra-ui/react';
 
 function Photobook(props) {
   //passing a refernce and then adding it to html5flipbook
   const [isMobile] = useMediaQuery("(max-width: 768px)");
   const book = useRef();
-
+  const { colorMode } = useColorMode();
   return ( 
+    
     <Center mt={5}>
       <VStack spacing={0}>
-        <Box>
+        <Box width="auto"
+            height="auto" boxShadow={
+            colorMode === 'light'
+              ? 'rgba(0, 0, 0, 0.75) 0px 7px 29px 0px'
+              : 'rgba(255, 255, 255, 0.2) 0px 7px 29px 0px'
+          }>
           {/* mobile view code */}
           {isMobile && <HTMLFlipBook
             // width={200}
