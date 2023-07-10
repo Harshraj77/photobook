@@ -4,22 +4,23 @@ import { Box, Center, IconButton, Image, VStack } from "@chakra-ui/react";
 import { ArrowRightIcon, ArrowLeftIcon } from '@chakra-ui/icons'
 import { useMediaQuery } from "@chakra-ui/react";
 import { useColorMode } from '@chakra-ui/react';
-
+import { useParams } from "react-router-dom";
+import files from "./Files";
 function Photobook(props) {
   //passing a refernce and then adding it to html5flipbook
   const [isMobile] = useMediaQuery("(max-width: 768px)");
-  const book = useRef();
+  const book = useRef();  
   const { colorMode } = useColorMode();
+
+  const {file} = useParams();
+  const fileId = parseInt(file);
+  
   return ( 
     
     <Center mt={5}>
       <VStack spacing={0}>
         <Box width="auto"
-            height="auto" boxShadow={
-            colorMode === 'light'
-              ? 'rgba(0, 0, 0, 0.75) 0px 7px 29px 0px'
-              : 'rgba(255, 255, 255, 0.2) 0px 7px 29px 0px'
-          }>
+            height="auto" >
           {/* mobile view code */}
           {isMobile && <HTMLFlipBook
             // width={200}
@@ -39,12 +40,13 @@ function Photobook(props) {
             ref={book}
             // usePortrait ={true}
           >
-            {props.imageData.map((id) => (
-              <Box>
-                <Image key={id} src={id} />
+            {files[fileId-1]?.images.map((idx) => (
+              <Box >
+                <Image key={idx} src={idx} />
               </Box>
             ))}
           </HTMLFlipBook>}
+
            {/* Laptop device */}  
           {!isMobile && <HTMLFlipBook
             width={400}
@@ -54,9 +56,9 @@ function Photobook(props) {
             ref={book}
             usePortrait ={false}
           >
-            {props.imageData.map((id) => (
+            {files[fileId-1]?.images?.map((idx) => (
               <Box>
-                <Image key={id} src={id} />
+                <Image key={idx+1} src={idx} />
               </Box>
             ))}
           </HTMLFlipBook>}
@@ -74,7 +76,7 @@ function Photobook(props) {
           <IconButton
             colorScheme="red"
             icon={<ArrowLeftIcon/>}
-            mx={2}
+            m={2}
             onClick={() => book.current.pageFlip().flipPrev()}/>
           <IconButton
             mx={2}
