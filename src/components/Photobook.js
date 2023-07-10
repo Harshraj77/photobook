@@ -17,8 +17,8 @@ function Photobook(props) {
 
   return (
     <Center mt={5}>
-      <VStack spacing={0}>
-        <Box width="auto" height="auto">
+      <VStack spacing={0} >
+        <Box width="fit-content" height="fit-content">
           {/* mobile view code */}
           {isMobile && (
             <HTMLFlipBook
@@ -76,7 +76,7 @@ function Photobook(props) {
             </HTMLFlipBook>
           )}
         </Box>
-        <Box>
+        <Box py='25px'>
           <IconButton
             colorScheme="red"
             icon={<ArrowLeftIcon />}
