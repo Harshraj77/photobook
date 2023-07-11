@@ -48,16 +48,19 @@ import Feed from './components/Feed';
 import { Box } from '@chakra-ui/react';
 import files from './components/Files'
 import Photobook from './components/Photobook';
+import Footer from './components/Footer';
 export default function App() {
   return (
     <BrowserRouter> 
       <Box>
          <Navbar/>
-         <Routes>
-            <Route path='/' exact element={<Feed fileData={files}/>} />
-            <Route path='/book/:file' element={<Photobook />} />
-
-         </Routes>
+         <Box minH='70vh'>
+          <Routes>
+              <Route path='/' exact element={<Feed fileData={files} />} />
+              <Route path='/book/:file' element={<Photobook />} />
+          </Routes>
+         </Box>
+         <Footer/>
       </Box>
     </BrowserRouter>
   )

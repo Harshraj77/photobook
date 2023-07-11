@@ -1,11 +1,10 @@
 import React, { useRef } from "react";
 import HTMLFlipBook from "react-pageflip";
-import { Box, Center, IconButton, Image, VStack } from "@chakra-ui/react";
-import { ArrowRightIcon, ArrowLeftIcon } from "@chakra-ui/icons";
-import { useMediaQuery } from "@chakra-ui/react";
-import { useColorMode } from "@chakra-ui/react";
+import { ArrowRightIcon, ArrowLeftIcon} from "@chakra-ui/icons";
+import { useMediaQuery,useColorMode ,Text,Box, Center, IconButton, Image, VStack } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
 import files from "./Files";
+
 function Photobook(props) {
   //passing a refernce and then adding it to html5flipbook
   const [isMobile] = useMediaQuery("(max-width: 768px)");
@@ -16,7 +15,9 @@ function Photobook(props) {
   const fileId = parseInt(file);
 
   return (
-    <Center mt={5}>
+    <Box>
+     
+      <Center mt={5}>
       <VStack spacing={0} >
         <Box width="fit-content" height="fit-content">
           {/* mobile view code */}
@@ -59,6 +60,7 @@ function Photobook(props) {
               showCover={true}
               ref={book}
               usePortrait={false}
+              mobileScrollSupport={true}
             >
               {files[fileId - 1]?.images?.map((idx) => (
                 <Box width="fit-content" height="fit-content">
@@ -76,7 +78,7 @@ function Photobook(props) {
             </HTMLFlipBook>
           )}
         </Box>
-        <Box py='25px'>
+        <Box py='30px'>
           <IconButton
             colorScheme="red"
             icon={<ArrowLeftIcon />}
@@ -91,8 +93,16 @@ function Photobook(props) {
             onClick={() => book.current.pageFlip().flipNext()}
           />
         </Box>
+        <Center>
+        <Box sx={{width:{sm:300,lg:800}}}>
+          <Text m={2} > Designed by : {files[fileId-1].design}</Text>
+          <Text m={2}> Photographers : {files[fileId-1].photographer}</Text>
+        </Box>
+        </Center>
       </VStack>
     </Center>
+    </Box>
+    
   );
 }
 

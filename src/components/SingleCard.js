@@ -4,6 +4,7 @@ import {
   Card,
   CardBody,
   Stack,
+  Box,
   Text,
   Divider,
   Image,
@@ -17,10 +18,10 @@ export default function SingleCard(props) {
   const { colorMode } = useColorMode();
   const [isMobile] = useMediaQuery("(max-width: 768px)");
   return (
-    <div>
+    <Box mx={4}>
       {isMobile ? (
         <Card
-          width="200px"
+          width="230px"
           colorScheme="whatsapp"
           boxShadow={
             colorMode === "light"
@@ -33,16 +34,18 @@ export default function SingleCard(props) {
               <Image
                 src={props.thumbnail}
                 alt="image"
-                height={200}
+                height={250}
+                width={300}
                 borderRadius="lg"
               />
             </Flex>
-            <Stack mt="6" spacing="3">
+            <Stack mt="6" spacing="3" alignContent='center' alignItems='center'>
+            <Text fontSize="md">{props.fileData.title}</Text>
             </Stack>
           </CardBody>
           <Divider />
           <CardFooter alignItems="center" justifyContent="center">
-            <Text fontSize="md">Design: Harsh Raj</Text>
+          <Text fontSize="md">Theme: {props.fileData.theme}</Text>
           </CardFooter>
         </Card>
       ) : (
@@ -64,15 +67,16 @@ export default function SingleCard(props) {
                 borderRadius="lg"
               />
             </Flex>
-            <Stack mt="6" spacing="3">
+            <Stack mt="6" spacing="3" alignContent='center' alignItems='center'>
+            <Text fontSize="md">{props.fileData.title}</Text>
             </Stack>
           </CardBody>
           <Divider />
           <CardFooter alignItems="center" justifyContent="center">
-            <Text fontSize="md">Design: Harsh Raj</Text>
+            <Text fontSize="md">Theme: {props.fileData.theme}</Text>
           </CardFooter>
         </Card>
       )}
-    </div>
+    </Box>
   );
 }
