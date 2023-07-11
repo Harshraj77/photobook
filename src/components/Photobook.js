@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef,useEffect } from "react";
 import HTMLFlipBook from "react-pageflip";
 import { ArrowRightIcon, ArrowLeftIcon} from "@chakra-ui/icons";
 import { useMediaQuery,useColorMode ,Text,Box, Center, IconButton, Image, VStack,Card,CardBody,Stack,Heading,StackDivider } from "@chakra-ui/react";
@@ -13,6 +13,11 @@ function Photobook(props) {
 
   const { file } = useParams();
   const fileId = parseInt(file);
+
+  useEffect(() => {
+    window.scrollTo(0, 0); // Scroll to the top position
+  }, []);
+
 
   return (
     <Box>
