@@ -6,7 +6,7 @@ const files = [
     id: 1,
     images: nov,
     title: "November Photobook",
-    design: "Harsh",
+    design: "Harsh Raj",
     theme: "Landscape",
     photographer:'Aman Kumar Srivastava, Aditya Pratap Singh, V C Srinivas,Ankur Kumar Mandal, Darisi Priyatham, Harsha, FIAT,Kaushtubh Bhalerao,A.K Shashank,Rajveer Ganesh, Srivastha,Yashwanthrao Sheshkar,Abhinav Bhagwat, Anusha, Anurag, Ankit, Nivedita, Maithil, Tanuj'
   },
@@ -14,7 +14,7 @@ const files = [
     id: 2,
     images: dec,
     title: "December Photobook",
-    design: "Divyanth",
+    design: "Divyanth Satya, Harsh Raj",
     theme: "Product photography",
     photographer:"Prateek Prakash, A.K Shashank, Yashwanthrao Sheshkar, Jagtap Rajveer Ganesh, Bhanu Krishna Prasad, Yash Singh, Kaushtubh Bhalerao"
   },
@@ -22,7 +22,7 @@ const files = [
     id: 3,
     images: adv,
     title: "Adavya Wrapup",
-    design: "Harsh",
+    design: "Harsh Raj",
     theme: `Fresher's Fest`,
     photographer:'Kaushtubh, Vedant, Alok, Yashwanth, Vignesh, A.K Shashank'
   },

@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import HTMLFlipBook from "react-pageflip";
 import { ArrowRightIcon, ArrowLeftIcon} from "@chakra-ui/icons";
-import { useMediaQuery,useColorMode ,Text,Box, Center, IconButton, Image, VStack } from "@chakra-ui/react";
+import { useMediaQuery,useColorMode ,Text,Box, Center, IconButton, Image, VStack,Card,CardBody,Stack,Heading,StackDivider } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
 import files from "./Files";
 
@@ -16,8 +16,16 @@ function Photobook(props) {
 
   return (
     <Box>
-     
-      <Center mt={5}>
+     <Text
+   sx={{ color: colorMode === 'light' ? 'red.500' : 'red.100',fontSize :{base:'2xl', lg:'4xl'} }}
+  // fontSize='4xl'
+  fontWeight='bold'
+  textAlign='center'
+>
+  {files[fileId-1].title}
+</Text>
+
+      <Center mt={2} >
       <VStack spacing={0} >
         <Box width="fit-content" height="fit-content">
           {/* mobile view code */}
@@ -93,14 +101,48 @@ function Photobook(props) {
             onClick={() => book.current.pageFlip().flipNext()}
           />
         </Box>
-        <Center>
-        <Box sx={{width:{sm:300,lg:800}}}>
-          <Text m={2} > Designed by : {files[fileId-1].design}</Text>
-          <Text m={2}> Photographers : {files[fileId-1].photographer}</Text>
+        <>
+        <Box >
+          {/* <Text m={2} > Designed by : {files[fileId-1].design}</Text>
+          <Text m={2}> Photographers : {files[fileId-1].photographer}</Text> */}
+  
         </Box>
-        </Center>
+        </>
       </VStack>
     </Center>
+    <Card  sx={{ mx: { base: '10px', md: '30px' } }}>
+  {/* <CardHeader>
+    <Heading size='md'>Info</Heading>
+  </CardHeader> */}
+  <CardBody>
+    <Stack divider={<StackDivider />} spacing='4'>
+      <Box>
+        <Heading size='xs' textTransform='uppercase'>
+          Design: 
+        </Heading>
+        <Text pt='2' fontSize='sm'>
+        {files[fileId-1].design}
+        </Text>
+      </Box>
+      <Box>
+        <Heading size='sm' textTransform='uppercase'>
+          Photographers
+        </Heading>
+        <Text pt='2' fontSize='sm'>
+        {files[fileId-1].photographer}
+        </Text>
+      </Box>
+      {/* <Box>
+        <Heading size='xs' textTransform='uppercase'>
+          Analysis
+        </Heading>
+        <Text pt='2' fontSize='sm'>
+          See a detailed analysis of all your business clients.
+        </Text>
+      </Box> */}
+    </Stack>
+  </CardBody>
+</Card>
     </Box>
     
   );
